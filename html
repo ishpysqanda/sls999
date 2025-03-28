@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviator Signals</title>
+    <style>
+        @keyframes hackerBg {
+            0% { background-position: 0 0; }
+            100% { background-position: -1000px 1000px; }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            background-image: url('https://www.transparenttextures.com/patterns/green-dust-and-scratches.png');
+            animation: hackerBg 10s linear infinite;
+        }
+        .top-right-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: green;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(0, 255, 0, 0.5);
+        }
+        .container {
+            max-width: 90%;
+            width: 400px;
+            margin: 20px auto;
+            padding: 10px;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+        }
+        .signal-box {
+            background-color: red;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .stats {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .history {
+            font-size: 14px;
+            color: gray;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .review-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+        button {
+            padding: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: green;
+            color: white;
+            transition: background-color 0.3s;
+            width: 100%;
+            max-width: 250px;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: darkgreen;
+        }
+        .vip-button {
+            background-color: gold;
+            color: black;
+            font-weight: bold;
+        }
+        .vip-button:hover {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://affpa.top/L?tag=d_3713491m_29091c_&site=3713491&ad=29091&r=registration" class="top-right-button">🏆 මෙය ක්‍රියාත්මක වන්නේ මේ වෙබ් අඩවියෙහි පමණි</a>
+    <div class="container">
+        <h1 style="color: red;">Aviator Signals</h1>
+        <p class="stats">🔥 නිවැරදිභාවය: <span id="accuracy">75%</span> | 📈 ලාභය: <span id="profit">+35400 LKR</span> | 👥 මාර්ගගත: <span id="users">124</span></p>
+        <div class="signal-box" id="signal">සංකේතය බලා සිටී...</div>
+        <button onclick="startLoading()">🔄 සංකේතය යාවත්කාලීන කරන්න</button>
+        <button class="vip-button" onclick="window.location.href='https://t.me/Virat999bot';">🚀 VIP ප්‍රවේශය ලබා ගන්න</button>
+        <h3>📊 පෙර සංකේත:</h3>
+        <div class="history" id="history"></div>
+        <h3>💬 පරිශීලක සමාලෝචන:</h3>
+        <div id="reviews"></div>
+    </div>
+    <script>
+        let history = [];
+        let reviews = [
+            "මෙම සංකේතය ඉතාම ගුණාත්මකයි!", "අද විශාල ලාභයක් උපයන ලදි!", "ආරම්භයේදී පරාජය වුණා, නමුත් දැන් හොඳ ආදායමක් ලබනවා!", "මෙය ආරම්භ කරද්දී සල්ලි නැතිවී ගියා, දැන් හැමදේම වෙනස්!", "විශ්වාසය ඇතිව සල්ලි දමන්න!"
+        ];
+        
+        function generateSignal() {
+            let randomCoefficient = (Math.random() * 2 + 1).toFixed(2);
+            document.getElementById("signal").innerText = "ඊළඟ ගුණාංකය: " + randomCoefficient + "x";
+            
+            history.unshift(randomCoefficient + "x");
+            if (history.length > 5) history.pop();
+            document.getElementById("history").innerHTML = history.join("<br>");
+
+            updateFakeStats();
+        }
+
+        function updateFakeStats() {
+            let accuracy = Math.floor(Math.random() * 8) + 70;
+            let profit = Math.floor(Math.random() * 1000) + 35000;
+            let users = Math.floor(Math.random() * 50) + 100;
+
+            document.getElementById("accuracy").innerText = accuracy + "%";
+            document.getElementById("profit").innerText = "+" + profit + " LKR";
+            document.getElementById("users").innerText = users;
+        }
+
+        function startLoading() {
+            document.getElementById("signal").innerText = "⏳ සංකේතය පූරණය වෙමින්...";
+            setTimeout(generateSignal, 3000);
+        }
+
+        function addFakeReview() {
+            let reviewBox = document.createElement("div");
+            reviewBox.className = "review-box";
+            reviewBox.innerText = reviews[Math.floor(Math.random() * reviews.length)];
+            document.getElementById("reviews").prepend(reviewBox);
+        }
+
+        setInterval(addFakeReview, 15000);
+    </script>
+</body>
+</html>
